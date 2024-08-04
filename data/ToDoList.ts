@@ -11,6 +11,12 @@ const ToDoList = [
 		title: "Sampai di kampus",
 		description: "Aku sudah sampai di kampus",
 	},
+	{
+		id: 5,
+		title: "Pulang dari kampus",
+		description:
+			"Aku akan dalam perjalanan pulang dari kampus Primakara University",
+	},
 ];
 
 export default ToDoList;

@@ -1,4 +1,5 @@
 import styles from "./Checkbox.module.css";
+import { cn } from "@/lib/utils";
 
 export default function Checkbox({
 	id,
@@ -15,9 +16,15 @@ export default function Checkbox({
 				type="checkbox"
 				id={id}
 				disabled={isDisabled}
-				checked={isChecked}
+				defaultChecked={isChecked}
 			/>
-			<label htmlFor={id} className={styles.checkbox} />
+			<label
+				htmlFor={id}
+				className={cn(
+					styles.checkbox,
+					isDisabled === true ? "border-[#6b6b6b!important]" : "border-[#fff]"
+				)}
+			/>
 		</div>
 	);
 }

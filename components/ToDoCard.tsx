@@ -32,7 +32,11 @@ export default function ToDoCard({
 			</div>
 			<div data-layout="right">
 				<div data-role="to-do-checklist">
-					<Checkbox id={`check-${id}`} />
+					{id === 3 ? (
+						<Checkbox id={`check-${id}`} isChecked={true} />
+					) : (
+						<Checkbox id={`check-${id}`} />
+					)}
 				</div>
 			</div>
 		</div>
