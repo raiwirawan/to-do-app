@@ -1,5 +1,7 @@
 "use client";
 
+import Accordion from "@/components/Accordion";
+import CalcAccordion from "@/data/CalcAccordion";
 import CalculationDetails from "@/components/CalculationDetails";
 import { useEffect, useState } from "react";
 
@@ -64,6 +66,22 @@ export default function Financial() {
 				className="w-full flex items-center justify-start mt-8"
 			>
 				<CalculationDetails monthlySpendingAvg={input} />
+			</div>
+			<div data-name="accordion-wrapper" className="mt-[4rem] w-full pb-[8rem]">
+				<h2
+					data-name="faq"
+					className="font-bold my-3 w-full text-center text-[2rem]"
+				>
+					FAQ
+				</h2>
+				{CalcAccordion.map((elm) => (
+					<Accordion
+						key={elm.id}
+						id={elm.id}
+						title={elm.title}
+						description={elm.description}
+					/>
+				))}
 			</div>
 		</div>
 	);

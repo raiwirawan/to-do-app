@@ -1,4 +1,5 @@
 import styles from "./CalculationDetail.module.css";
+import infoData from "@/data/CalcDefinition";
 
 export default function CalculationDetails({
 	monthlySpendingAvg,
@@ -8,8 +9,16 @@ export default function CalculationDetails({
 	return (
 		<div>
 			<div className="font-bold text-2xl mb-4">Calculation Detail :</div>
-			<div className="flex flex-row items-center justify-start">
-				Monthly Average Spending : Rp{monthlySpendingAvg}
+			<div className="flex flex-row items-center justify-start mb-3">
+				Monthly Average Spending :{" "}
+				{Intl.NumberFormat("id-ID", {
+					style: "currency",
+					currency: "IDR",
+				}).format(
+					typeof monthlySpendingAvg === "number"
+						? monthlySpendingAvg
+						: parseInt(monthlySpendingAvg)
+				)}
 				<DisplayInfo
 					id={infoData[0].id}
 					title={infoData[0].title}
@@ -17,10 +26,15 @@ export default function CalculationDetails({
 				/>
 			</div>
 			<div className="flex flex-row items-center justify-start">
-				Yearly Total Spending : Rp
-				{(typeof monthlySpendingAvg === "number"
-					? monthlySpendingAvg
-					: parseInt(monthlySpendingAvg)) * 12}
+				Yearly Total Spending :{" "}
+				{Intl.NumberFormat("id-ID", {
+					style: "currency",
+					currency: "IDR",
+				}).format(
+					(typeof monthlySpendingAvg === "number"
+						? monthlySpendingAvg
+						: parseInt(monthlySpendingAvg)) * 12
+				)}
 				<b className="ml-3">| (4% of Calculation Results)</b>
 				<DisplayInfo
 					id={infoData[1].id}
@@ -30,12 +44,17 @@ export default function CalculationDetails({
 			</div>
 			<hr className="my-5" />
 			<div className="flex flex-row items-center justify-start">
-				Calculation Results : Rp
-				{((typeof monthlySpendingAvg === "number"
-					? monthlySpendingAvg
-					: parseInt(monthlySpendingAvg)) *
-					12) /
-					0.04}
+				Calculation Results :{" "}
+				{Intl.NumberFormat("id-ID", {
+					style: "currency",
+					currency: "IDR",
+				}).format(
+					((typeof monthlySpendingAvg === "number"
+						? monthlySpendingAvg
+						: parseInt(monthlySpendingAvg)) *
+						12) /
+						0.04
+				)}
 				<DisplayInfo
 					id={infoData[2].id}
 					title={infoData[2].title}
@@ -81,29 +100,13 @@ function DisplayInfo({
 				</svg>
 			</div>
 			<div
-				className={`absolute top-0 left-0 mt-8 w-[10rem] h-auto rounded-2xl p-3 bg-blue-500 displayInfoContent z-[2] ${styles.displayInfoContent}`}
+				className={`absolute top-0 left-0 pt-8 w-[20rem] h-auto displayInfoContent z-[2] ${styles.displayInfoContent}`}
 			>
-				<h3 className="text-[0.5rem] font-bold">{title}</h3>
-				<p className="text-[0.5rem] mt-2">{description}</p>
+				<div className="w-full h-full bg-blue-500 p-3 rounded-2xl">
+					<h3 className="text-[1rem] font-bold">{title}</h3>
+					<p className="text-[1rem] mt-2">{description}</p>
+				</div>
 			</div>
 		</span>
 	);
 }
-
-const infoData = [
-	{
-		id: 1,
-		title: "Monthly Average Spending",
-		desc: "Is your total expenditure each month on average.",
-	},
-	{
-		id: 2,
-		title: "Yearly Total Spending",
-		desc: "Is your total expenditure of one year. (Monthly Average Spending x 12 month [one year]).",
-	},
-	{
-		id: 3,
-		title: "Calculation Result",
-		desc: "Is the total you need to meet your needs for a year which is 4% of the results of this calculation. (Yearly Total Spending / 4%)",
-	},
-];
