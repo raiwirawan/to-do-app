@@ -3,5 +3,5 @@ export default function FinancialLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	return <main className="max-w-[60rem] mx-auto">{children}</main>;
+	return <main className="max-w-[60rem] pt-[5rem] mx-auto">{children}</main>;
 }
