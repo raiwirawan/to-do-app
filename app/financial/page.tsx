@@ -45,7 +45,7 @@ export default function Financial() {
 								onChange={(e) => setInput(e.target.value)}
 							/>
 						</div>
-						<div className="w-[45%] ml-auto h-full flex items-start justify-center hidden">
+						<div className="w-[45%] ml-auto h-full items-start justify-center hidden">
 							<button
 								type="button"
 								data-role="button"

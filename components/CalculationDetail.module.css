@@ -1,0 +1,7 @@
+.displayInfoContent {
+	display: none;
+}
+
+.displayInfoTrigger:hover .displayInfoContent {
+	display: block;
+}
