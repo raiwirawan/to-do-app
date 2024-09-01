@@ -1,4 +1,12 @@
 import createTable from "@/data/CreateTable";
+import {
+	Table,
+	TableHead,
+	TableBody,
+	TableRow,
+	TableField,
+	TableData,
+} from "@/components/Table";
 
 const table1 = createTable({
 	name: "School Clubs",
@@ -10,32 +18,32 @@ const table1 = createTable({
 	],
 });
 
-export default function Table() {
+export default function Users() {
 	return (
 		<div>
 			<div className="table-example">
-				<table className="border">
-					<thead>
-						<tr>
+				<Table classname={"border"}>
+					<TableHead>
+						<TableRow>
 							{table1.head.map((th, i) => (
-								<th className="border p-5" key={i}>
+								<TableField classname={"border p-5"} key={i}>
 									{th}
-								</th>
+								</TableField>
 							))}
-						</tr>
-					</thead>
-					<tbody>
+						</TableRow>
+					</TableHead>
+					<TableBody>
 						{table1.body.map((tableBody, j) => (
-							<tr key={j}>
+							<TableRow key={j}>
 								{tableBody.map((tb, i) => (
-									<td className="border p-5" key={i}>
+									<TableData classname={"border p-5"} key={i}>
 										{tb}
-									</td>
+									</TableData>
 								))}
-							</tr>
+							</TableRow>
 						))}
-					</tbody>
-				</table>
+					</TableBody>
+				</Table>
 			</div>
 		</div>
 	);
