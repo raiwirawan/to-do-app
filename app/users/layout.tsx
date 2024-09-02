@@ -3,5 +3,5 @@ export default function UsersLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	return <main className="max-w-[60rem] pt-[5rem] mx-auto">{children}</main>;
+	return <main className="max-w-[70rem] pt-[5rem] mx-auto">{children}</main>;
 }
