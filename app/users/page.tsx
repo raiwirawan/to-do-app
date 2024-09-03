@@ -23,7 +23,7 @@ const table1 = createTable({
 export default function Users() {
 	return (
 		<div>
-			<h1 className="text-5xl font-bold py-8 mb-5 text-center bg-[#923823] uppercase">
+			<h1 className="text-5xl font-bold py-8 mb-5 text-center bg-[#7eb0ff] uppercase">
 				{table1.name}
 			</h1>
 			<div className="table-example flex items-center justify-center">
